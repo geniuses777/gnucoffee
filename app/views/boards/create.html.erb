@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+       
+    <link href="css/elements.css" rel="stylesheet">
+    <script src="js/my_js.js"></script>
+    <style>
+     /*메뉴*/
+      * 
+       {    
+         padding: 0;
+         margin: 0;
+         transition: all .5s ease-in-out;
+      }
+      header {
+          position:fixed;
+          z-index:300;
+          font-family: 'Noto Sans KR', sans-serif;
+         background: #2a2a2a;
+         width: 100%;
+        
+      }
+     
+      input#btn_main{
+          font-family: 'Noto Sans KR', sans-serif;
+         display: none;
+       
+      }
+     
+      header>label {
+         font-family: 'Noto Sans KR', sans-serif;
+         width: 30px;
+         height: 30px;
+         display: block;
+         background: #333;
+         color:  #FFF5EE;
+         font-size: 40px;
+         line-height: 30px;
+         text-align: center;
+         padding: 10px;
+         font-weight: bold;
+         float: left;
+       
+      }
+      header>label:hover {
+          font-family: 'Noto Sans KR', sans-serif;
+         background: #444;
+      }
+      main {
+          font-family: 'Noto Sans KR', sans-serif;
+         color:  #FFF5EE;
+         height: 50px;
+         display: block;
+         text-align: right;
+         padding: 0px 20px;
+         line-height: 50px;
+         letter-spacing: 5px;
+         text-transform: uppercase;
+         font-family: monospace;
+         font-weight: 900;
+      }
+      .menu {
+          font-family: 'Noto Sans KR', sans-serif;
+         position: absolute;
+         background: #333;
+         width: 200px;
+         list-style: none;
+         margin-left: -200px;
+         opacity: 0;
+       
+      }
+      li {
+          font-family: 'Noto Sans KR', sans-serif;
+         display: block;
+         outline: 1px solid #eee;
+         padding: 7px 10px;
+         border-left: 0 solid #ddd;
+      }
+      li a {
+          font-family: 'Noto Sans KR', sans-serif;
+         color: #eee;
+         text-decoration: none;
+         display: block;
+      }
+      li:hover {
+         font-family: 'Noto Sans KR', sans-serif;
+         background: #444;
+         border-left: 5px solid #ddd;
+      }
+      #btn_main:checked ~ .menu {
+          font-family: 'Noto Sans KR', sans-serif;
+         margin: 0;
+         opacity: 1;
+      }
+    body
+    {
+       font-family: 'Noto Sans KR', sans-serif;
+       font-size: 10pt;
+       background-color:  white;
+       padding: 0px;
+       margin: auto;
+    
+    }
+    /*   맨 위     */
+    #head 
+    {
+       font-family: 'Noto Sans KR', sans-serif;
+        background-image: url(<%=asset_path('홈.jpg')%>);
+       color: #FFF5EE;
+        background-size: cover;
+       padding: 80px;
+        margin-bottom: 10px;
+        
+       
+    }
+    #head> p 
+    {
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 100px;
+        color:  #FFF5EE;
+        padding-top: 5px;
+        margin: 50px;
+        font-weight: bold;
+        text-align: center;
+    }
+    #body
+    {
+        margin : 150px;
+        width: 60%;
+        height: 500px;
+        margin: 0 auto;
+        margin-top: 100px;
+        padding: 20px;
+        margin-bottom: 100px;
+        border:2px gray solid;
+    }
+    #body>h2
+    {
+      margin-bottom : 20px;
+    }
+    .btn-info
+    {
+        float : right;
+  </style>
+  </head>
+  <body>
+    <header>
+      <input type="checkbox" id="btn_main"><!-- sadfadfasdfa -->
+      <label for="btn_main">&equiv;</label>
+      <main for="">CAFE FOR GNU</main>
+      <ul class="menu">
+         <li><a href="/">HOME</a></li>
+         <li><a href="#cent4">스타벅스</a></li>
+         <li><a href="#cent5">이디야</a></li>
+         <li><a href="#cent6">투썸</a></li>
+         <li><a href="/boards/list">게시판</a></li>
+      </ul>
+    </header>
+    <!--헤드-->
+    <div id="head">
+      <p>THE CAFE</p>
+    </div>
+    <div id="body">
+    <h2>글 작성</h2>
+    <form action="/boards/create_at" method="post">
+      <div class="form-group">
+        <label for="exampleFormControlInput1">제목</label>
+        <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="제목">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">내용</label>
+        <textarea type="text" class="form-control" name="content" id="exampleFormControlTextarea1" line-height="3.5" placeholder="내용을 입력하세요" ></textarea>
+      </div>
+      <button type="submit" class="btn btn-info">작성하기</button>
+    </form>
+    <br>
+    <a href="/boards/list"><button type="submit" class="btn btn-info">취소하기</button></a>
+    </div>
+    </body>
+    </html>

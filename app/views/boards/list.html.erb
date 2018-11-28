@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+       
+    <link href="css/elements.css" rel="stylesheet">
+    <script src="js/my_js.js"></script>
+    <style>
+     /*메뉴*/
+      * 
+       {    
+         padding: 0;
+         margin: 0;
+         transition: all .5s ease-in-out;
+      }
+      header {
+          position:fixed;
+          z-index:300;
+          font-family: 'Noto Sans KR', sans-serif;
+         background: #2a2a2a;
+         width: 100%;
+        
+      }
+     
+      input#btn_main{
+          font-family: 'Noto Sans KR', sans-serif;
+         display: none;
+       
+      }
+     
+      label {
+         font-family: 'Noto Sans KR', sans-serif;
+         width: 30px;
+         height: 30px;
+         display: block;
+         background: #333;
+         color:  #FFF5EE;
+         font-size: 40px;
+         line-height: 30px;
+         text-align: center;
+         padding: 10px;
+         font-weight: bold;
+         float: left;
+       
+      }
+      label:hover {
+          font-family: 'Noto Sans KR', sans-serif;
+         background: #444;
+      }
+      main {
+          font-family: 'Noto Sans KR', sans-serif;
+         color:  #FFF5EE;
+         height: 50px;
+         display: block;
+         text-align: right;
+         padding: 0px 20px;
+         line-height: 50px;
+         letter-spacing: 5px;
+         text-transform: uppercase;
+         font-family: monospace;
+         font-weight: 900;
+      }
+      .menu {
+          font-family: 'Noto Sans KR', sans-serif;
+         position: absolute;
+         background: #333;
+         width: 200px;
+         list-style: none;
+         margin-left: -200px;
+         opacity: 0;
+       
+      }
+      li {
+          font-family: 'Noto Sans KR', sans-serif;
+         display: block;
+         outline: 1px solid #eee;
+         padding: 7px 10px;
+         border-left: 0 solid #ddd;
+      }
+      li a {
+          font-family: 'Noto Sans KR', sans-serif;
+         color: #eee;
+         text-decoration: none;
+         display: block;
+      }
+      li:hover {
+         font-family: 'Noto Sans KR', sans-serif;
+         background: #444;
+         border-left: 5px solid #ddd;
+      }
+      #btn_main:checked ~ .menu {
+          font-family: 'Noto Sans KR', sans-serif;
+         margin: 0;
+         opacity: 1;
+      }
+    body
+    {
+       font-family: 'Noto Sans KR', sans-serif;
+       font-size: 10pt;
+       background-color:  white;
+       padding: 0px;
+       margin: auto;
+    
+    }
+    /*   맨 위     */
+    #head 
+    {
+       font-family: 'Noto Sans KR', sans-serif;
+        background-image: url(<%=asset_path('홈.jpg')%>);
+       color: #FFF5EE;
+        background-size: cover;
+       padding: 80px;
+        margin-bottom: 10px;
+        
+       
+    }
+    #head> p 
+    {
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 100px;
+        color:  #FFF5EE;
+        padding-top: 5px;
+        margin: 50px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .wrapper{
+      width:100%;
+      margin-top:50px;
+    }
+    .geshipan{
+      width:80%;
+      margin:0 auto;
+    }
+    .top{
+      width:100%;
+      margin-bottom:10px;
+    }
+    .top>.button{
+      float:right;
+      margin-bottom:10px;
+    }
+    .top>.login{
+      width:40%;
+      float:left;
+      font-size:18px;
+    }
+  </style>
+  </head>
+  <body>
+    <header>
+      <input type="checkbox" id="btn_main"><!-- sadfadfasdfa -->
+      <label for="btn_main">&equiv;</label>
+      <main for="">CAFE FOR GNU</main>
+      <ul class="menu">
+         <li><a href="/">HOME</a></li>
+         <li><a href="/home/franchise">Franchise</a></li>
+         <li><a href="/home/nonfranchise">Non-Franchise</a></li>
+         <li><a href="/boards/list">게시판</a></li>
+      </ul>
+    </header>
+    <!--헤드-->
+    <div id="head">
+      <p>THE CAFE</p>
+    </div>
+    
+    <!--게시판-->
+    <div class="wrapper">
+      <div class="geshipan">
+        <div class="top">
+          <div class="login">
+            <% if user_signed_in? %>
+            현재 로그인한 아이디: <%=current_user.name%>
+            <a href="/users/sign_out">로그아웃</a>
+            <% end %>
+          </div>
+          <div class="button">
+            <% if user_signed_in? %>
+            <a href="/boards/create"><button type="button" class="btn btn-primary">
+              글 작성하기
+            </button></a>
+            <% else %>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              글 작성하기
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">경고 메시지</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    로그인 해야합니다.
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="/users/sign_in"><button type="button" class="btn btn-primary">로그인 하러가기</button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">제목</th>
+              <th scope="col">작성자</th>
+              <th scope="col">작성한 날짜</th>
+              <th scope="col">수정하기</th>
+              <th scope="col">삭제하기</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @all.each do |p| %>
+              <%@count=@count+1%>
+            <tr>
+              <th scope="row"><%=@count%></th>
+              <td><a href="/boards/show/<%=p.id%>"><%=p.title%></a></td>
+              <td><%=p.user%></td>
+              <td><% @data=p.created_at%> <%=@data.year%>.<%=@data.month%>.<%=@data.day%></td>
+              <% if user_signed_in? %>
+                <% if @message==false %>
+                <td><a href="/boards/update/<%=p.id%>" data-toggle="modal" data-target="#exampleModal">[수정하기]</a></td>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">경고 메시지</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        작성자가 아닙니다.
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% else %>
+                <td><a href="/boards/update/<%=p.id%>">[수정하기]</a></td>
+                <% end %>
+              <!-- Button trigger modal -->
+              <% else %>
+              <td><a href="/boards/update/<%=p.id%>" data-toggle="modal" data-target="#exampleModal">[수정하기]</a></td>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">경고 메시지</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      로그인 해야합니다.
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <a href="/users/sign_in"><button type="button" class="btn btn-primary">로그인 하러가기</button></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+              <td><a href="/boards/delete/<%=p.id%>" data-method="post">[삭제하기]</a></td>
+            </tr>
+            <%end%>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

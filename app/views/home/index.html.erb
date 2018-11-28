@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<link href="https://fonts.googleapis.com/css?family=Gurajada" rel="stylesheet">
+<head>
+<title>첫화면</title>
+
+</head>
+<style>
+
+body
+{
+   background-image: url(<%=asset_path('home1.jpg')%>);
+   background-size:cover;
+   background-repeat:no-repeat;
+   /*height:auto;    */
+   width: 60%;
+   height: 500px;
+   margin: 0 auto;
+   
+}
+
+/*      사이트 이름          */
+#head 
+{
+   
+   color:black;
+   font-family: 'Gurajada', serif;
+   position:absolute;
+   top:10px;
+   right:1400px;
+   font-size:100px;
+   text-align:auto;
+}
+
+
+
+
+
+
+
+/*   프랜차이즈로 이동        */
+#o
+{
+  font-family: 'Gurajada', serif;
+   position:absolute;
+   top:350px;
+   right:81%;
+   font-size:30px;
+   text-align:center;
+  
+  
+}
+#o a:link
+{
+text-decoration:none; 
+}
+#o a:hover
+{
+color:red;
+}
+#o a
+{
+color:black;
+}
+
+/*   노프랜차이즈로 이동        */
+#n
+{
+   font-family: 'Gurajada', serif;
+   position:absolute;
+   top:400px;
+   right:79%;
+   font-size:30px;
+   text-align:center;
+}
+#n a:link
+{
+text-decoration:none; 
+}
+#n a:hover
+{
+color:red;
+}
+#n a
+{
+color:black;
+}
+
+
+
+
+
+
+
+
+/*       로그인 화면 창          */
+/*
+.ap
+{
+border: 5px solid red;
+position:absolute;
+top:400px;
+right:700px;
+
+}
+.section 
+{
+    background-color:#F5DEB3;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+   border: 5px solid red;
+   position:absolute;
+   top:500px;
+   right:37%;
+}
+
+form
+{
+    text-align: center;
+    margin-top: 0;
+}
+.submit 
+{
+    background-color: #3fb6b2;
+    padding: 12px 45px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    margin: 0;
+    font-weight: bold;
+}
+.submit:hover 
+{
+    background-color: #43a09d;
+}
+input
+{
+    margin-bottom: 10px;
+    font-size: 11pt;
+    padding: 15px 10px 10px;
+    border: 1px solid red;
+    background-color: #efefef;
+    color: #787575;
+    border-radius: 5px;
+    width: 70%;
+    outline: none;
+}
+*/
+
+
+</style>
+<body>
+
+
+
+<div id="head">
+   <span>CAFE&nbsp;</span>
+   <span>FOR</span>
+   <span>GNU</span>
+</div>
+
+
+<div id="o">
+<p><a href="/home/franchise">
+Franchise</a></p>
+</div>
+
+<div id="n">
+<p><a href="/home/nonfranchise">
+None-Franchise</a></p>
+</div>
+
+   <!--<div class="ap">
+      <p>로그인</p>
+   </div>-->
+
+   <!--<div class="section">
+            <form>
+                <input name="name" placeholder="아이디" type="text" required ><br/>
+                <input name="pass" placeholder="비밀번호" type="password">
+                <input type="submit" value="로그인" class="submit">
+            </form>
+     </div>-->
+
+<!--<audio src="음악.mp3" autoplay controls loop="0"></audio>-->
+</body>
+</html>

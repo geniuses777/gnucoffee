@@ -19,6 +19,8 @@ class BoardsController < ApplicationController
     $message = true
     def show
         @special = Board.find params[:id]
+        @comments = @special.comments
+        puts @comments
     end
     def update
        @one = Board.find params[:id]

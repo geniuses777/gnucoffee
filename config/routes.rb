@@ -29,6 +29,13 @@ Rails.application.routes.draw do
   post '/boards/update_at/:id'=>'boards#update_at'
   post '/boards/delete/:id'=>'boards#delete'
   
+  ##comment
+  
+   get '/boards/show/:board_id/comments/create' => 'comments#create'
+
+  get '' => 'comment#destroy'    # 어떻게 갈지는 아직 모르지만, 도착지는 알고있다.
+
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

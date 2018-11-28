@@ -169,9 +169,21 @@
         <hr>
         <h4>제목 : <%=@special.title%></h4>
         <hr>
-        <h4>내용 : <%=@special.content%></h4>
+        <h4><pre><%=@special.content%></pre></h4>
         <hr>
-        <a href="/boards/list"><button type="submit" class="btn btn-info">돌아가기</button></a>
+        <!--<a href="/boards/list"><button type="submit" class="btn btn-info">돌아가기</button></a>-->
+        <form action='/boards/show/<%= @special.id %>/comments/create' method='get'>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" name="input_comment" placeholder="새 댓글을 입력하세요." aria-label="Recipient's username" aria-describedby="button-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">작성</button>
+              </div>
+            </div>
+        </form>
+        <% @comments.each do |comment| %>
+            <p><%= comment.content %> &nbsp; [ 작성자 : <%=comment.user%> ]</p>
+        <% end %>
     </div>
   </body>
 </html>
+
